@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     //Transform tr;
     float speed;
 
-    public Vector3 limitMax; // public ¼±¾ğ -> unity inspector¿¡¼­ º¸ÀÎ´Ù
+    public Vector3 limitMax; // public ì„ ì–¸ -> unity inspectorì—ì„œ ë³´ì¸ë‹¤
     public Vector3 limitMin;
     Vector3 temp;
 
