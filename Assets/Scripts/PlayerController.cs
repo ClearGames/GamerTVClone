@@ -1,38 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class Player : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    //Transform tr;
-    float speed;
+    float x;
+    float y;
 
-    public Vector3 limitMax; // public ���� -> unity inspector���� ���δ�
+    public Vector3 limitMax; // public 선언 -> unity inspector에서 보인다
     public Vector3 limitMin;
     Vector3 temp;
+
+    public GameObject prefabBullet;
+    float time;
+    public float speed;
 
     // Start is called before the first frame update
     void Start()
     {
-        //tr = GetComponent<Transform>();
+        time = 0;
+        speed = 10.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //tr.position = new Vector3(tr.position.x + 0.01f, 0, 0);
-        //transform.position = new Vector3(transform.position.x + 0.01f, 0, 0);
+        Move();
+        FireBullet();
+    }
 
-        speed = 0.1f;
-        float x = Input.GetAxis("Horizontal") * speed;
-        float y = Input.GetAxis("Vertical") * speed;
+    public void Move()
+    {
+        float x = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+        float y = Input.GetAxis("Vertical") * speed * Time.deltaTime;
         transform.Translate(new Vector3(x, y, 0));
-        //temp.x = x; temp.y = y;
-        //temp.Set(x, y, 0);
-        //transform.Translate(tmp);
-
-        //if (transform.position.x > limitMax.x) transform.position.Set(limitMax.x, transform.position.y, 0);
 
         if (transform.position.x > limitMax.x)
         {
@@ -57,6 +60,18 @@ public class Player : MonoBehaviour
             temp.x = transform.position.x;
             temp.y = limitMin.y;
             transform.position = temp;
+        }
+    }
+
+    public void FireBullet()
+    {
+        time += Time.deltaTime;
+        Debug.Log("Fire" + time);
+        if(time > 0.3f)
+        {
+            Instantiate(prefabBullet, transform.position, Quaternion.identity); // 자기 위치에서 총알 생성
+            time -= 0.3f;
+            //time = 0; // 위 코드가 권장되는 형태
         }
     }
 

@@ -335,6 +335,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   limitMax: {x: 10, y: 18, z: 0}
   limitMin: {x: -10, y: -18, z: 0}
+  prefabBullet: {fileID: 4586362622051159817, guid: 8414a702b9eff6646ae0bb245f58cc68, type: 3}
+  speed: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
