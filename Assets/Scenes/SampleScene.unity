@@ -227,6 +227,7 @@ GameObject:
   - component: {fileID: 606176232}
   - component: {fileID: 606176235}
   - component: {fileID: 606176236}
+  - component: {fileID: 606176237}
   m_Layer: 0
   m_Name: enemy5_0
   m_TagString: enemy
@@ -244,7 +245,7 @@ Animator:
   m_GameObject: {fileID: 606176231}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6b73fc81ecfa30f41bf18057501538d7, type: 2}
+  m_Controller: {fileID: 22100000, guid: 3a00d7a9161e14243a2db6ac390948c7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -394,6 +395,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &606176237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606176231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea2242947d23744438ec62cac2427164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1027670244
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,6 +543,7 @@ GameObject:
   - component: {fileID: 1148044535}
   - component: {fileID: 1148044538}
   - component: {fileID: 1148044539}
+  - component: {fileID: 1148044540}
   m_Layer: 0
   m_Name: enemy3_0
   m_TagString: enemy
@@ -547,7 +561,7 @@ Animator:
   m_GameObject: {fileID: 1148044534}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 505cbfbf462d94b4e80ac6828ff37339, type: 2}
+  m_Controller: {fileID: 22100000, guid: e1b5ac5fd512eec45adfe972820fc3da, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -697,6 +711,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1148044540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148044534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea2242947d23744438ec62cac2427164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1410062020
 GameObject:
   m_ObjectHideFlags: 0
@@ -710,6 +736,7 @@ GameObject:
   - component: {fileID: 1410062021}
   - component: {fileID: 1410062024}
   - component: {fileID: 1410062025}
+  - component: {fileID: 1410062026}
   m_Layer: 0
   m_Name: enemy4_0
   m_TagString: enemy
@@ -727,7 +754,7 @@ Animator:
   m_GameObject: {fileID: 1410062020}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0894d77313c82f6409de1eba85a2d2fc, type: 2}
+  m_Controller: {fileID: 22100000, guid: b99fdbf2cf33d8f47a7a656475434908, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -877,6 +904,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1410062026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410062020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea2242947d23744438ec62cac2427164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1442995107
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,6 +929,7 @@ GameObject:
   - component: {fileID: 1442995108}
   - component: {fileID: 1442995111}
   - component: {fileID: 1442995112}
+  - component: {fileID: 1442995113}
   m_Layer: 0
   m_Name: enemy2_0
   m_TagString: enemy
@@ -907,7 +947,7 @@ Animator:
   m_GameObject: {fileID: 1442995107}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0c77ce52986b77345bc27a050f2bb124, type: 2}
+  m_Controller: {fileID: 22100000, guid: acda265bd7afeb8419cd7bb43906da53, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1057,6 +1097,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1442995113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442995107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea2242947d23744438ec62cac2427164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2115294271
 GameObject:
   m_ObjectHideFlags: 0
@@ -1070,6 +1122,7 @@ GameObject:
   - component: {fileID: 2115294272}
   - component: {fileID: 2115294275}
   - component: {fileID: 2115294276}
+  - component: {fileID: 2115294277}
   m_Layer: 0
   m_Name: enemy1_0
   m_TagString: enemy
@@ -1159,7 +1212,7 @@ Transform:
   m_GameObject: {fileID: 2115294271}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.02, y: 9, z: 0}
+  m_LocalPosition: {x: 3.02, y: 9.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1237,6 +1290,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2115294277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115294271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea2242947d23744438ec62cac2427164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
