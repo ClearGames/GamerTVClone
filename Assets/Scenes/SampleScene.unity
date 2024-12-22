@@ -407,6 +407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2242947d23744438ec62cac2427164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyBullet: {fileID: 8390242086475097975, guid: 43f89fe6d20ee5a47a7c101397b5f7a4, type: 3}
 --- !u!1 &1027670244
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,9 +420,11 @@ GameObject:
   - component: {fileID: 1027670246}
   - component: {fileID: 1027670245}
   - component: {fileID: 1027670248}
+  - component: {fileID: 1027670249}
+  - component: {fileID: 1027670250}
   m_Layer: 0
   m_Name: player_0
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -530,6 +533,68 @@ MonoBehaviour:
   limitMin: {x: -10, y: -18, z: 0}
   prefabBullet: {fileID: 4586362622051159817, guid: 8414a702b9eff6646ae0bb245f58cc68, type: 3}
   speed: 0
+--- !u!50 &1027670249
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027670244}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!70 &1027670250
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027670244}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00000011920929, y: -0.2201705}
+  m_Size: {x: 2.9431813, y: 3.207386}
+  m_Direction: 0
 --- !u!1 &1148044534
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,6 +788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2242947d23744438ec62cac2427164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyBullet: {fileID: 8390242086475097975, guid: 43f89fe6d20ee5a47a7c101397b5f7a4, type: 3}
 --- !u!1 &1410062020
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,6 +982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2242947d23744438ec62cac2427164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyBullet: {fileID: 8390242086475097975, guid: 43f89fe6d20ee5a47a7c101397b5f7a4, type: 3}
 --- !u!1 &1442995107
 GameObject:
   m_ObjectHideFlags: 0
@@ -1109,6 +1176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2242947d23744438ec62cac2427164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyBullet: {fileID: 8390242086475097975, guid: 43f89fe6d20ee5a47a7c101397b5f7a4, type: 3}
 --- !u!1 &2115294271
 GameObject:
   m_ObjectHideFlags: 0
@@ -1302,6 +1370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2242947d23744438ec62cac2427164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyBullet: {fileID: 8390242086475097975, guid: 43f89fe6d20ee5a47a7c101397b5f7a4, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
