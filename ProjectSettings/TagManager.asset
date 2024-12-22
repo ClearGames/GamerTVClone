@@ -7,6 +7,8 @@ TagManager:
   - enemy
   - bullet
   - enemyBullet
+  - blockCollider
+  - itemDropEnemy
   layers:
   - Default
   - TransparentFX

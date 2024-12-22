@@ -14,6 +14,8 @@ public class EnemyController : MonoBehaviour
     // 이동관련
     float moveSpeed;
     Rigidbody2D rg2D;
+    // 아이템
+    public GameObject[] items;
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +58,11 @@ public class EnemyController : MonoBehaviour
         if (time > 0.6f)
         {
             Destroy(gameObject);
+            if (gameObject.CompareTag("itemDropEnemy"))
+            {
+                int temp = Random.Range(0, 2);
+                Instantiate(items[temp], transform.position, Quaternion.identity);
+            }
         }
         FireBullet();
         //Move();
@@ -76,10 +83,19 @@ public class EnemyController : MonoBehaviour
             animator.SetInteger("State", 1);
             OnDead();
         }
+        if (collision.CompareTag("blockCollider"))
+        {
+            OnDisappear();
+        }
     }
 
     private void OnDead()
     {
         onDead = true;
+    }
+
+    private void OnDisappear()
+    {
+        Destroy(gameObject);
     }
 }
