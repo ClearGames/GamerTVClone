@@ -11,6 +11,9 @@ public class EnemyController : MonoBehaviour
     Animator animator;
     bool onDead;
     float time;
+    // 이동관련
+    float moveSpeed;
+    Rigidbody2D rg2D;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +22,11 @@ public class EnemyController : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         onDead = false;
         time = 0.0f;
+        // 이동관련
+        rg2D = GetComponent<Rigidbody2D>();
+        moveSpeed = Random.Range(5.0f, 7.0f);
+        fireDelay = 2.5f;
+        Move();
     }
 
     public void FireBullet()
@@ -50,8 +58,16 @@ public class EnemyController : MonoBehaviour
             Destroy(gameObject);
         }
         FireBullet();
+        //Move();
     }
 
+    private void Move()
+    {
+        if (player == null) return;
+        Vector3 distance = player.transform.position - transform.position;
+        Vector3 dir = distance.normalized;
+        rg2D.velocity = dir * moveSpeed;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("bullet"))
