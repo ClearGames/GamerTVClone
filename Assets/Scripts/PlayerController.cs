@@ -13,13 +13,24 @@ public class PlayerController : MonoBehaviour
     public Vector3 limitMin;
     Vector3 temp;
 
-    public GameObject prefabBullet;
+    public GameObject[] prefabBullet;
+    //public GameObject prefabBullet;
+
     float time;
     public float speed;
 
     float fireDelay;
     Animator animator;
     bool onDead;
+
+    // 아이템
+    public int Damage;
+    public int Bomb;
+
+    // 폭탄
+    public GameObject BombMissile;
+    public int BombPosY;
+    public int BombDamage;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +41,12 @@ public class PlayerController : MonoBehaviour
 
         animator = GetComponent<Animator>();
         onDead = false;
+
+        Damage = 1;
+        Bomb = 0;
+
+        BombPosY = -30;
+        BombDamage = 30;
     }
 
     // Update is called once per frame
@@ -38,6 +55,7 @@ public class PlayerController : MonoBehaviour
         Move();
         FireBullet();
         OnDeadCheck();
+        FireBomb();
     }
 
     public void Move()
@@ -75,14 +93,29 @@ public class PlayerController : MonoBehaviour
     public void FireBullet()
     {
         fireDelay += Time.deltaTime;
-        Debug.Log("Fire" + fireDelay);
+        //Debug.Log("Fire" + fireDelay);
         if(fireDelay > 0.3f)
         {
-            Instantiate(prefabBullet, transform.position, Quaternion.identity); // 자기 위치에서 총알 생성
+            //Instantiate(prefabBullet, transform.position, Quaternion.identity); // 자기 위치에서 총알 생성
+            Instantiate(prefabBullet[Damage - 1], transform.position, Quaternion.identity); // 자기 위치에서 총알 생성
             fireDelay -= 0.3f;
         }
     }
-
+    public void FireBomb()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Space!!");
+            if(Bomb >= 1)
+            {
+                GameObject go = Instantiate(BombMissile, transform.position, Quaternion.identity);
+                go.transform.position = new Vector3(transform.position.x, BombPosY, transform.position.z);
+                //go.transform.position = new Vector2(transform.position.x, BombPosY);
+                --Bomb;
+                UIManager.instance.BombCheck(Bomb);
+            }
+        }    
+    }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -106,7 +139,7 @@ public class PlayerController : MonoBehaviour
         if (onDead)
         {
             time += Time.deltaTime;
-            Debug.Log("time after destroyed" + time);
+            //Debug.Log("time after destroyed" + time);
         }
         if(time > 0.6f)
         {
