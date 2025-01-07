@@ -13,13 +13,19 @@ public class PlayerController : MonoBehaviour
     public Vector3 limitMin;
     Vector3 temp;
 
-    public GameObject prefabBullet;
+    public GameObject[] prefabBullet;
+    //public GameObject prefabBullet;
+
     float time;
     public float speed;
 
     float fireDelay;
     Animator animator;
     bool onDead;
+
+    // 아이템
+    public int Damage;
+    public int Bomb;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +36,9 @@ public class PlayerController : MonoBehaviour
 
         animator = GetComponent<Animator>();
         onDead = false;
+
+        Damage = 1;
+        Bomb = 0;
     }
 
     // Update is called once per frame
@@ -78,7 +87,8 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Fire" + fireDelay);
         if(fireDelay > 0.3f)
         {
-            Instantiate(prefabBullet, transform.position, Quaternion.identity); // 자기 위치에서 총알 생성
+            //Instantiate(prefabBullet, transform.position, Quaternion.identity); // 자기 위치에서 총알 생성
+            Instantiate(prefabBullet[Damage - 1], transform.position, Quaternion.identity); // 자기 위치에서 총알 생성
             fireDelay -= 0.3f;
         }
     }

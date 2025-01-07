@@ -6,6 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     public GameObject enemyBullet;
     GameObject player;
+    PlayerController playerController;
     float fireDelay;
 
     Animator animator;
@@ -16,18 +17,32 @@ public class EnemyController : MonoBehaviour
     Rigidbody2D rg2D;
     // 아이템
     public GameObject[] items;
+    // HP
+    int hp;
+    // 태그 임시 저장
+    public string tagName;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
+        playerController = player.GetComponent<PlayerController>();
+        
         onDead = false;
         time = 0.0f;
+        
         // 이동관련
         rg2D = GetComponent<Rigidbody2D>();
         moveSpeed = Random.Range(5.0f, 7.0f);
         fireDelay = 2.5f;
+
+        if (gameObject.CompareTag("ItemDropEnemy"))
+            hp = 3;
+        else
+            hp = 1;
+
+        tagName = gameObject.tag;
         Move();
     }
 
@@ -58,7 +73,8 @@ public class EnemyController : MonoBehaviour
         if (time > 0.6f)
         {
             Destroy(gameObject);
-            if (gameObject.CompareTag("itemDropEnemy"))
+            //if (gameObject.CompareTag("itemDropEnemy"))
+            if (tagName == "itemDropEnemy")
             {
                 int temp = Random.Range(0, 2);
                 Instantiate(items[temp], transform.position, Quaternion.identity);
@@ -79,9 +95,13 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.CompareTag("bullet"))
         {
-            //Destroy(gameObject);
-            animator.SetInteger("State", 1);
-            OnDead();
+            hp -= playerController.Damage;
+            if(hp < 0)
+            {
+                //Destroy(gameObject);
+                animator.SetInteger("State", 1);
+                OnDead();
+            }
         }
         if (collision.CompareTag("blockCollider"))
         {
@@ -92,6 +112,7 @@ public class EnemyController : MonoBehaviour
     private void OnDead()
     {
         onDead = true;
+        gameObject.tag = "Untagged";
     }
 
     private void OnDisappear()
