@@ -27,6 +27,11 @@ public class PlayerController : MonoBehaviour
     public int Damage;
     public int Bomb;
 
+    // 폭탄
+    public GameObject BombMissile;
+    public int BombPosY;
+    public int BombDamage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +44,9 @@ public class PlayerController : MonoBehaviour
 
         Damage = 1;
         Bomb = 0;
+
+        BombPosY = -30;
+        BombDamage = 30;
     }
 
     // Update is called once per frame
@@ -85,7 +93,7 @@ public class PlayerController : MonoBehaviour
     public void FireBullet()
     {
         fireDelay += Time.deltaTime;
-        Debug.Log("Fire" + fireDelay);
+        //Debug.Log("Fire" + fireDelay);
         if(fireDelay > 0.3f)
         {
             //Instantiate(prefabBullet, transform.position, Quaternion.identity); // 자기 위치에서 총알 생성
@@ -100,6 +108,9 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Space!!");
             if(Bomb >= 1)
             {
+                GameObject go = Instantiate(BombMissile, transform.position, Quaternion.identity);
+                go.transform.position = new Vector3(transform.position.x, BombPosY, transform.position.z);
+                //go.transform.position = new Vector2(transform.position.x, BombPosY);
                 --Bomb;
                 UIManager.instance.BombCheck(Bomb);
             }
@@ -128,7 +139,7 @@ public class PlayerController : MonoBehaviour
         if (onDead)
         {
             time += Time.deltaTime;
-            Debug.Log("time after destroyed" + time);
+            //Debug.Log("time after destroyed" + time);
         }
         if(time > 0.6f)
         {

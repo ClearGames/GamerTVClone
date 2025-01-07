@@ -37,7 +37,7 @@ public class EnemyController : MonoBehaviour
         moveSpeed = Random.Range(5.0f, 7.0f);
         fireDelay = 2.5f;
 
-        if (gameObject.CompareTag("ItemDropEnemy"))
+        if (gameObject.CompareTag("itemDropEnemy"))
             hp = 3;
         else
             hp = 1;
@@ -96,13 +96,18 @@ public class EnemyController : MonoBehaviour
         if (collision.CompareTag("bullet"))
         {
             hp -= playerController.Damage;
-            if(hp < 0)
-            {
-                //Destroy(gameObject);
-                animator.SetInteger("State", 1);
-                OnDead();
-            }
         }
+        if (collision.CompareTag("bombMissile"))
+        {
+            hp -= playerController.BombDamage;
+        }
+        if (hp <= 0)
+        {
+            //Destroy(gameObject);
+            animator.SetInteger("State", 1);
+            OnDead();
+        }
+        
         if (collision.CompareTag("blockCollider"))
         {
             OnDisappear();

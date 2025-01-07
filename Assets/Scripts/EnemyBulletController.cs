@@ -57,5 +57,9 @@ public class NewBehaviourScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (collision.CompareTag("bombMissile"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

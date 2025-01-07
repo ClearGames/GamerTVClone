@@ -996,6 +996,9 @@ MonoBehaviour:
   speed: 0
   Damage: 0
   Bomb: 0
+  BombMissile: {fileID: 8874634590395988785, guid: 2d4ddb5c680c30140bff43c93ad95ee2, type: 3}
+  BombPosY: 0
+  BombDamage: 0
 --- !u!50 &1027670249
 Rigidbody2D:
   serializedVersion: 4

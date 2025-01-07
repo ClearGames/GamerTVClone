@@ -28,7 +28,7 @@ public class ItemController : MonoBehaviour
             Destroy(gameObject);
             ItemGain();
         }
-        if (collision.CompareTag("BlockCollider"))
+        if (collision.CompareTag("blockCollider"))
         {
             Destroy(gameObject);
         }
