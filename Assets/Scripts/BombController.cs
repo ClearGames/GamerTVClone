@@ -8,9 +8,10 @@ public class BombController : ItemController
     protected override void ItemGain()
     {
         playerController = base.player.GetComponent<PlayerController>();
-        if(playerController.Bomb < 4)
+        if(playerController.Bomb < 3)
         {
             playerController.Bomb++;
+            UIManager.instance.BombCheck(playerController.Bomb); // wow
         }
     }
 }

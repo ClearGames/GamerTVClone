@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
         Move();
         FireBullet();
         OnDeadCheck();
+        FireBomb();
     }
 
     public void Move()
@@ -92,7 +93,18 @@ public class PlayerController : MonoBehaviour
             fireDelay -= 0.3f;
         }
     }
-
+    public void FireBomb()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Space!!");
+            if(Bomb >= 1)
+            {
+                --Bomb;
+                UIManager.instance.BombCheck(Bomb);
+            }
+        }    
+    }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
