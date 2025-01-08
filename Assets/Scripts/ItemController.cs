@@ -6,12 +6,14 @@ public class ItemController : MonoBehaviour
 {
     protected GameObject player;
     protected float speed;
+    protected int score;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        //player = GameObject.FindGameObjectWithTag("Player");
         speed = 10.0f;
+        score = 100;
     }
 
     // Update is called once per frame
@@ -27,6 +29,7 @@ public class ItemController : MonoBehaviour
         {
             Destroy(gameObject);
             ItemGain();
+            //UIManager.instance.ScoreAdd(score);
         }
         if (collision.CompareTag("blockCollider"))
         {
@@ -36,6 +39,6 @@ public class ItemController : MonoBehaviour
 
     protected virtual void ItemGain()
     {
-
+        if(player == null) player = GameObject.FindGameObjectWithTag("Player");
     }
 }
