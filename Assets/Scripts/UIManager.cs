@@ -12,6 +12,11 @@ public class UIManager : MonoBehaviour
     public Text scoreText;
     public int score;
 
+    // 암막
+    public Image blackOutCurtain;
+    float blackOutCurtainValue;
+    float blackOutCurtainSpeed;
+
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -23,6 +28,16 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         score = 0;
+        blackOutCurtainValue = 1.0f;
+        blackOutCurtainSpeed = 0.5f;
+    }
+
+    private void Update()
+    {
+        if(blackOutCurtainValue > 0)
+        {
+            HideBlackOutCurtain();
+        }
     }
 
     // 폭탄 아이템을 체크하는 함수
@@ -49,5 +64,11 @@ public class UIManager : MonoBehaviour
             if ((i + 1) <= lifeCount) uiLifes[i].SetActive(true);
             else uiLifes[i].SetActive(false);
         }
+    }
+
+    public void HideBlackOutCurtain()
+    {
+        blackOutCurtainValue -= Time.deltaTime * blackOutCurtainSpeed;
+        blackOutCurtain.color = new Color(0.0f, 0.0f, 0.0f, blackOutCurtainValue);
     }
 }
