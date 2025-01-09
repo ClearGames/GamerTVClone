@@ -7,13 +7,14 @@ public class BackgroundImageController : MonoBehaviour
 {
     float height;
     float speed;
-    BoxCollider2D collider2D;
+    //BoxCollider2D collider2D;
+    BoxCollider2D boxCollider2D;
 
     // Start is called before the first frame update
     void Start()
     {
-        collider2D = GetComponent<BoxCollider2D>();
-        height = collider2D.size.y;
+        boxCollider2D = GetComponent<BoxCollider2D>();
+        height = boxCollider2D.size.y;
         speed = 3.0f;
     }
 
