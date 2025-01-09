@@ -140,6 +140,8 @@ public class PlayerController : MonoBehaviour
         {
             time += Time.deltaTime;
             //Debug.Log("time after destroyed" + time);
+            if(SoundManager.instance.playerDeadSound.isPlaying == false)
+                SoundManager.instance.playerDeadSound.Play();
         }
         if(time > 0.6f)
         {
