@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -9,13 +10,19 @@ public class UIManager : MonoBehaviour
     public GameObject[] uiBooms;
     public GameObject[] uiLifes;
 
+    // 점수
     public Text scoreText;
+    public Text highScoreText;
     public int score;
+    public int highScore;
 
     // 암막
     public Image blackOutCurtain;
     float blackOutCurtainValue;
     float blackOutCurtainSpeed;
+
+    // 게임오버
+    public Image gameOverImage;
 
     private void Awake()
     {
@@ -28,6 +35,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         score = 0;
+        highScore = PlayerPrefs.GetInt("HighScore", 0); // 
         blackOutCurtainValue = 1.0f;
         blackOutCurtainSpeed = 0.5f;
     }
@@ -70,5 +78,25 @@ public class UIManager : MonoBehaviour
     {
         blackOutCurtainValue -= Time.deltaTime * blackOutCurtainSpeed;
         blackOutCurtain.color = new Color(0.0f, 0.0f, 0.0f, blackOutCurtainValue);
+    }
+
+    public void GameOver()
+    {
+        gameOverImage.gameObject.SetActive(true);
+        if(score > highScore)
+        {
+            PlayerPrefs.SetInt("HighScore", score);
+            highScore = score;
+        }
+        highScoreText.text = highScore.ToString();
+    }
+
+    public void ReturnTitle()
+    {
+        SceneManager.LoadScene("Title");
+
+        Destroy(UIManager.instance.gameObject);
+        Destroy(GameManager.instance.gameObject);
+        Destroy(SoundManager.instance.gameObject);
     }
 }
