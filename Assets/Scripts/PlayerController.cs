@@ -149,6 +149,7 @@ public class PlayerController : MonoBehaviour
             GameManager.instance.PlayerLifeRemove();
             GameManager.instance.CreatePlayer();
             UIManager.instance.LifeCheck(GameManager.instance.lifeCount);
+            GameManager.instance.GameOverCheck();
         }
     }
 }

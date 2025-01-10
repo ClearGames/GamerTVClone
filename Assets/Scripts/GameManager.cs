@@ -53,4 +53,13 @@ public class GameManager : MonoBehaviour
     {
         --lifeCount;
     }
+
+    // 플레이어 라이프에 따른 게임오버 확인
+    public void GameOverCheck()
+    {
+        if(lifeCount < 0)
+        {
+            UIManager.instance.GameOver();
+        }
+    }
 }
