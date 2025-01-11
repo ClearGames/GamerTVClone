@@ -24,6 +24,16 @@ public class UIManager : MonoBehaviour
     // 게임오버
     public Image gameOverImage;
 
+    // 보스
+    public Image hpBarFrame;
+    public Image hpBarGreen;
+    public Image hpBarRed;
+
+    public float MaxHpGreen;
+    public float MaxHpRed;
+    public BossController bossController;
+    public bool isBossSpawn;
+
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -38,6 +48,8 @@ public class UIManager : MonoBehaviour
         highScore = PlayerPrefs.GetInt("HighScore", 0); // 
         blackOutCurtainValue = 1.0f;
         blackOutCurtainSpeed = 0.5f;
+        
+        isBossSpawn = false;
     }
 
     private void Update()
@@ -45,6 +57,10 @@ public class UIManager : MonoBehaviour
         if(blackOutCurtainValue > 0)
         {
             HideBlackOutCurtain();
+        }
+        if (isBossSpawn)
+        {
+            BossHPBarCheck();
         }
     }
 
@@ -98,5 +114,15 @@ public class UIManager : MonoBehaviour
         Destroy(UIManager.instance.gameObject);
         Destroy(GameManager.instance.gameObject);
         Destroy(SoundManager.instance.gameObject);
+    }
+
+    public void BossHPBarCheck()
+    {
+        hpBarFrame.gameObject.SetActive(true);
+        hpBarGreen.gameObject.SetActive(true);
+        hpBarRed.gameObject.SetActive(true);
+
+        hpBarGreen.fillAmount = bossController.hpGreen / MaxHpGreen;
+        hpBarRed.fillAmount = bossController.hpRed / MaxHpRed;
     }
 }
