@@ -21,6 +21,9 @@ public class EnemySpawnController : MonoBehaviour
     int wave;
     // 플레이어 변수
     //GameObject player;
+    // 보스 관련
+    bool bossCreate;
+    public GameObject bossGameObject;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +33,7 @@ public class EnemySpawnController : MonoBehaviour
         enemyCount = 5;
         randomCounts = new int[enemyCount];
         wave = 0;
+        bossCreate = false;
         //player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -37,6 +41,9 @@ public class EnemySpawnController : MonoBehaviour
     void Update()
     {
         Timer();
+        // 보스 생성
+        if (wave >= 5 && bossCreate == false)
+            BossCreate();
     }
 
     void Timer()
@@ -80,5 +87,19 @@ public class EnemySpawnController : MonoBehaviour
             float result = Random.Range(tmpX - 2.0f, tmpX + 2.0f);
             tmp.transform.position = new Vector3(result, tmp.transform.position.y, tmp.transform.position.z);
         }
+    }
+
+    void BossCreate()
+    {
+        bossCreate = true;
+        GameObject tmp = GameObject.Instantiate(bossGameObject);
+        int randomCount = Random.Range(0, 9);
+        tmp.transform.position = enemySpawns[randomCount].position;
+        BossController bossController = tmp.GetComponent<BossController>();
+
+        UIManager.instance.bossController = bossController;
+        UIManager.instance.MaxHpGreen = bossController.hpGreen;
+        UIManager.instance.MaxHpRed = bossController.hpRed;
+        UIManager.instance.isBossSpawn = true;
     }
 }
