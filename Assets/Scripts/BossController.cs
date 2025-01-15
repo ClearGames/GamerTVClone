@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BossController : MonoBehaviour
 {
-    //
+    // 
     GameObject player;
     PlayerController playerController;
     // 체력바
@@ -38,6 +38,11 @@ public class BossController : MonoBehaviour
     // 2 : R공격
     // 3 : Die
     int animNumber;
+
+    // 피격관련
+    public SpriteRenderer spriteRenderer;
+    Color currentColor;
+
     private void Awake()
     {
         hpGreen = 150.0f;
@@ -57,6 +62,7 @@ public class BossController : MonoBehaviour
         speed = 10;
 
         animNumber = 0;
+        currentColor = spriteRenderer.color;
     }
 
     // Update is called once per frame
@@ -198,16 +204,25 @@ public class BossController : MonoBehaviour
         {
             if(hpGreen > 0) hpGreen -= playerController.Damage;
             else            hpRed -= playerController.Damage;
+            StartCoroutine(OnDamagedEffect());
         }
         if (collision.CompareTag("bombMissile"))
         {
             if (hpGreen > 0) hpGreen -= playerController.BombDamage;
             else             hpRed -= playerController.Damage;
+            StartCoroutine(OnDamagedEffect());
         }
         if (hpRed <= 0)
         {
             animator.SetTrigger("Die");
             OnDead();
         }
+    }
+
+    IEnumerator OnDamagedEffect()
+    {
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(0.2f);
+        spriteRenderer.color = currentColor;
     }
 }
