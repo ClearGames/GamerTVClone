@@ -1,6 +1,6 @@
 # 📍 GamerTVClone
 
-✅ Clone Coding and Deploy Completed 🎉✨
+✅ Clone Coding and [Deploy Completed](https://github.com/ClearGames/GamerTVClone/releases/tag/v1.0.0) 🎉✨
 <hr/>
 
 ![Cap 2025-01-15 15-43-47-397](https://github.com/user-attachments/assets/671f0060-614d-4dec-8cb2-bbdb33fd67b3)  
